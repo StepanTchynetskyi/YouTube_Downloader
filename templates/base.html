@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<title>SITE NAME</title>
+</head>
+<body >
+	<nav>
+	    <div class="nav-wrapper indigo accent-4">
+	      <a href="." class="brand-logo" style="font-size: 2.5em;">YouUpTube</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="sass.html">Sass</a></li>
+	        <li><a href="badges.html">Components</a></li>
+	        <li><a href="collapsible.html">JavaScript</a></li>
+	      </ul>
+	    </div>
+	</nav>
+	<div class="container">
+		<div class="row">
+				<img class=""style = "display: block;margin-left: auto;margin-right: auto;width: 50%;"  src="{% static "images/youtube-main-removebg.png"%}">
+				<p style="text-align: center; font-size: 2em;margin:0;padding:0;">Now it is easy to download YouTube video</p>
+		</div>
+		<form action="{%url 'search' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="link">
+        <button class="btn waves-effect indigo accent-4" type="submit" name="action">Submit
+            <i class="material-icons indigo accent-4 right">send</i>
+        </button>
+    </form> 
+    </div>
+    {% block content %}
+    {% endblock content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
